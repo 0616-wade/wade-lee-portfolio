@@ -1,0 +1,1141 @@
+[index.html](https://github.com/user-attachments/files/26363982/index.html)
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>李振伟 Wade Li - 电影摄影师</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      border-bottom: 1px solid #333;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-link {
+      padding: 20px 16px;
+      color: #555;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+    }
+
+    .nav-link.active {
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    main {
+      padding-top: 64px;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 16px;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 4px;
+      line-height: 2;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      margin-top: 60px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-btn {
+      padding: 12px 30px;
+      border: 1px solid #333;
+      background: transparent;
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 4px;
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .hero-btn:hover {
+      border-color: #fff;
+    }
+
+    /* Page Sections */
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 8px;
+      margin-bottom: 10px;
+    }
+
+    .page-subtitle {
+      color: #555;
+      margin-bottom: 60px;
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .grid-item {
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.02);
+    }
+
+    .grid-item-image {
+      aspect-ratio: 16/9;
+      background: #111;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .grid-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .grid-item:hover .grid-item-image img {
+      opacity: 1;
+    }
+
+    .grid-item-title {
+      font-size: 14px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .award-badge {
+      font-size: 10px;
+      border: 1px solid #c9a227;
+      color: #c9a227;
+      padding: 2px 8px;
+    }
+
+    .grid-item-role {
+      color: #666;
+      font-size: 12px;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+
+    .grid-item-detail {
+      color: #444;
+      font-size: 11px;
+      margin-top: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .grid-item-year {
+      color: #555;
+      font-size: 12px;
+    }
+
+    /* Commercial Grid */
+    .commercial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .commercial-item {
+      border: 1px solid #222;
+      padding: 25px;
+      transition: border-color 0.3s;
+    }
+
+    .commercial-item:hover {
+      border-color: #555;
+    }
+
+    .commercial-client {
+      color: #555;
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .commercial-title {
+      color: #888;
+      font-size: 12px;
+    }
+
+    /* Photo Gallery Grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .photo-item {
+      aspect-ratio: 1;
+      background: #111;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .photo-item:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+
+    .photo-item:hover img {
+      opacity: 1;
+    }
+
+    /* Bio Section */
+    .bio-content {
+      max-width: 800px;
+    }
+
+    .bio-content p {
+      font-size: 14px;
+      line-height: 2.2;
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    .bio-content strong {
+      color: #fff;
+    }
+
+    .awards-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid #222;
+    }
+
+    .awards-title {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 6px;
+      margin-bottom: 30px;
+    }
+
+    .award-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .award-star {
+      color: #c9a227;
+      font-size: 18px;
+    }
+
+    .award-name {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .award-movie {
+      color: #555;
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .contact-label {
+      color: #555;
+      width: 60px;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .contact-value {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .contact-value a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .contact-value a:hover {
+      color: #888;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #333;
+      padding: 15px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+      border-color: #fff;
+    }
+
+    textarea.form-input {
+      resize: none;
+      height: 120px;
+    }
+
+    .form-btn {
+      width: 100%;
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 15px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-btn:hover {
+      background: #ddd;
+    }
+
+    .success-message {
+      border: 1px solid #22c55e;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .success-message p {
+      color: #22c55e;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #333;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    footer p {
+      color: #555;
+      font-size: 14px;
+    }
+
+    footer p:last-child {
+      margin-top: 10px;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #333;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+
+    .back-to-top:hover {
+      border-color: #fff;
+    }
+
+    /* Featured Section */
+    .featured-section {
+      padding: 80px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .featured-title {
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 6px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    /* Section spacing */
+    .shortfilms-section {
+      margin-top: 100px;
+      padding-top: 60px;
+      border-top: 1px solid #222;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .commercial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+        letter-spacing: 4px;
+      }
+      .hero p {
+        font-size: 14px;
+      }
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .commercial-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-title {
+        font-size: 28px;
+      }
+    }
+
+    /* Mobile menu active */
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #000;
+      border-bottom: 1px solid #333;
+    }
+
+    /* Hide pages */
+    .page-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a class="logo" onclick="showPage('home')">李振伟</a>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link active" onclick="showPage('home')">家</a>
+        <a class="nav-link" onclick="showPage('movies')">故事片</a>
+        <a class="nav-link" onclick="showPage('commercials')">商业广告</a>
+        <a class="nav-link" onclick="showPage('gallery')">图片摄影</a>
+        <a class="nav-link" onclick="showPage('bio')">传记</a>
+        <a class="nav-link" onclick="showPage('contact')">联系</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Home Page -->
+    <div id="page-home" class="page-section">
+      <div class="hero">
+        <h1>李振伟</h1>
+        <p>光与色彩，讲述故事<br>这是摄影最重要的部分</p>
+        <p style="margin-top: 40px; color: #444;">选择分类开始浏览</p>
+        <div class="hero-buttons">
+          <button class="hero-btn" onclick="showPage('movies')">故事片</button>
+          <button class="hero-btn" onclick="showPage('commercials')">商业广告</button>
+          <button class="hero-btn" onclick="showPage('gallery')">图片摄影</button>
+          <button class="hero-btn" onclick="showPage('bio')">传记</button>
+        </div>
+      </div>
+
+      <divclass="featured-section">
+        <h2 class="featured-title">精选作品</h2>
+        <div class="grid">
+          <div class="grid-item" onclick="showPage('movies')">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="东北猛兽">
+            </div>
+            <div class="grid-item-title">东北猛兽</div>
+            <div class="grid-item-year">2023</div>
+          </div>
+          <div class="grid-item" onclick="showPage('movies')">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="哥俩儿好">
+            </div>
+            <div class="grid-item-title">哥俩儿好</div>
+            <div class="grid-item-year">2023</div>
+          </div>
+          <div class="grid-item" onclick="showPage('movies')">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=800&q=80" alt="东北老炮2">
+            </div>
+            <div class="grid-item-title">东北老炮2</div>
+            <div class="grid-item-year">2022</div>
+          </div>
+          <div class="grid-item" onclick="showPage('movies')">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80" alt="洛城父子">
+            </div>
+            <div class="grid-item-title">洛城父子 <span class="award-badge">获奖</span></div>
+            <div class="grid-item-year">2019</div>
+          </div>
+          <div class="grid-item" onclick="showPage('movies')">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80" alt="三个孬家伙">
+            </div>
+            <div class="grid-item-title">三个孬家伙</div>
+            <div class="grid-item-year">2016</div>
+          </div>
+          <div class="grid-item" onclick="showPage('gallery')">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="摄影作品">
+            </div>
+            <div class="grid-item-title">图片摄影</div>
+            <div class="grid-item-year">查看全部</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Movies Page -->
+    <div id="page-movies" class="page-section page-hidden">
+      <div class="page">
+        <h1 class="page-title">故事片</h1>
+        <p class="page-subtitle">电影长片 & 剧情片</p>
+
+        <div class="grid">
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="东北猛兽">
+            </div>
+            <div class="grid-item-title">东北猛兽</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">文松、贾冰主演</div>
+            <div class="grid-item-year">2023</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="哥俩儿好">
+            </div>
+            <div class="grid-item-title">哥俩儿好</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">刘小光、冯粒主演</div>
+            <div class="grid-item-year">2023</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=800&q=80" alt="东北老炮2">
+            </div>
+            <div class="grid-item-title">东北老炮2</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">刘小光主演</div>
+            <div class="grid-item-year">2022</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80" alt="洛城父子">
+            </div>
+            <div class="grid-item-title">洛城父子 <span class="award-badge">获奖</span></div>
+            <div class="grid-item-role">导演兼摄影指导</div>
+            <div class="grid-item-detail">2019 MIFF最佳摄影奖提名</div>
+            <div class="grid-item-year">2019</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80" alt="三个孬家伙">
+            </div>
+            <div class="grid-item-title">三个孬家伙</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">刘桦主演</div>
+            <div class="grid-item-year">2016</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=800&q=80" alt="最好的婚礼">
+            </div>
+            <div class="grid-item-title">最好的婚礼</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">李伯恩导演</div>
+            <div class="grid-item-year">2015</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1567607198473-729c4b8e1c08?w=800&q=80" alt="末路球徒">
+            </div>
+            <div class="grid-item-title">末路球徒</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">李梦男主演</div>
+            <div class="grid-item-year">2015</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&q=80" alt="有一天">
+            </div>
+            <div class="grid-item-title">有一天 - 礼物</div>
+            <div class="grid-item-role">摄影师</div>
+            <div class="grid-item-detail">咏梅主演，李睿珺导演，华谊十大明星公益电影</div>
+            <div class="grid-item-year">2014</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&q=80" alt="隐形守护者">
+            </div>
+            <div class="grid-item-title">隐形守护者 <span class="award-badge">获奖</span></div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">黄金笛导演 - 现象级腾讯首推互动游戏，BAFTA展奕计划奖</div>
+            <div class="grid-item-year">2019</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-item-image">
+              <img src="https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?w=800&q=80" alt="名利游戏">
+            </div>
+            <div class="grid-item-title">名利游戏</div>
+            <div class="grid-item-role">摄影指导</div>
+            <div class="grid-item-detail">黄金笛导演</div>
+            <div class="grid-item-year">2019</div>
+          </div>
+        </div>
+
+        <!-- Short Films -->
+        <div class="shortfilms-section">
+          <h2 class="page-title">短片</h2>
+          <p class="page-subtitle">SHORT FILMS</p>
+
+          <div class="grid">
+            <div class="grid-item">
+              <div class="grid-item-image">
+                <img src="https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?w=800&q=80" alt="过五关">
+              </div>
+              <div class="grid-item-title">过五关 <span class="award-badge">获奖</span></div>
+              <div class="grid-item-role">导演/摄影指导/剪辑</div>
+              <div class="grid-item-detail">入围2025年SHORTWAVE上海青年短片展</div>
+              <div class="grid-item-year">2024</div>
+            </div>
+            <div class="grid-item">
+              <div class="grid-item-image">
+                <img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?w=800&q=80" alt="迷途">
+              </div>
+              <div class="grid-item-title">迷途 <span class="award-badge">获奖</span></div>
+              <div class="grid-item-role">摄影指导</div>
+              <div class="grid-item-detail">第十届北京独立电影节"年度优秀剧情片奖"，入围日内瓦国际电影节</div>
+              <div class="grid-item-detail">University of Miami第16届Canes电影节椰子奖</div>
+              <div class="grid-item-year">2013</div>
+            </div>
+            <div class="grid-item">
+              <div class="grid-item-image">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="逆爱">
+              </div>
+              <div class="grid-item-title">逆爱</div>
+              <div class="grid-item-role">摄影指导</div>
+              <div class="grid-item-detail">入围2013年第十届北京大学电影节</div>
+              <div class="grid-item-year">2013</div>
+            </div>
+            <div class="grid-item">
+              <div class="grid-item-image">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80" alt="换梦人生">
+              </div>
+              <div class="grid-item-title">换梦人生</div>
+              <div class="grid-item-role">摄影指导</div>
+              <div class="grid-item-detail">长虹集团出品，姚笛主演</div>
+              <div class="grid-item-year">2012</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commercials Page -->
+    <div id="page-commercials" class="page-section page-hidden">
+      <div class="page">
+        <h1 class="page-title">商业广告</h1>
+        <p class="page-subtitle">ADVERTISING WORKS</p>
+
+        <div class="commercial-grid">
+          <div class="commercial-item">
+            <p class="commercial-client">OPPO</p>
+            <p class="commercial-title">OPPO FIND6 大漠银月篇</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">怡宝</p>
+            <p class="commercial-title">怡宝奥运TVC</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">康佳</p>
+            <p class="commercial-title">康佳贺岁形象片</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">京东</p>
+            <p class="commercial-title">京东全球购TVC</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">方太</p>
+            <p class="commercial-title">方太-宋墨馨篇</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">方太</p>
+            <p class="commercial-title">方太-青山周平篇</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">京东</p>
+            <p class="commercial-title">京东音箱TVC</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">河南卫视</p>
+            <p class="commercial-title">河南卫视国潮大典《门神》</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">新浪网</p>
+            <p class="commercial-title">新浪网最美表演《创作无罪》</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">DIIMI</p>
+            <p class="commercial-title">DIIMI服装广告</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">TCL</p>
+            <p class="commercial-title">TCL大国时代篇</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">广药集团</p>
+            <p class="commercial-title">广药集团形象片</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">郎朗</p>
+            <p class="commercial-title">郎朗《日出东方》MV</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">杭盖乐队</p>
+            <p class="commercial-title">杭盖乐队《故乡》《嘎达梅林》MV</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">海马</p>
+            <p class="commercial-title">海马M8 TVC</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">双汇</p>
+            <p class="commercial-title">双汇椰果烤香肠TVC</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">丰田</p>
+            <p class="commercial-title">丰田RAV4穿越篇</p>
+          </div>
+          <div class="commercial-item">
+            <p class="commercial-client">丰田</p>
+            <p class="commercial-title">丰田RAV4毒气篇</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Gallery Page -->
+    <div id="page-gallery" class="page-section page-hidden">
+      <div class="page">
+        <h1 class="page-title">图片摄影</h1>
+        <p class="page-subtitle">PHOTOGRAPHY WORKS</p>
+
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="风光摄影">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80" alt="自然光影">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&q=80" alt="风景">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&q=80" alt="自然">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&q=80" alt="山水">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80" alt="旅行">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=80" alt="云雾">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&q=80" alt="森林">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&q=80" alt="海洋">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="人物">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80" alt="日出">
+          </div>
+          <div class="photo-item">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80" alt="雪山">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bio Page -->
+    <div id="page-bio" class="page-section page-hidden">
+      <div class="page">
+        <h1 class="page-title">传记</h1>
+
+        <div class="bio-content">
+          <p>
+            <strong>李振伟 (WADE LIIE)</strong>，专业电影摄影师 / 导演。
+            CNSC会员，北京电影学院摄影专业毕业。
+          </p>
+
+          <p>
+            师从 <strong>刘永泗教授</strong>（北京电影学院摄影系78班）。
+          </p>
+
+          <p>
+            2015年参加三届奥斯卡最佳摄影奖得主 <strong>Vittorio Storaro 大师班</strong>。
+            摄影分析曾刊登在Vittorio Storaro个人网站。
+          </p>
+
+          <p>
+            善于用诗的镜头语言表现画面的生命力与内涵。
+            善于捕捉光与色彩的细微变化。
+            善于转换拍摄风格来传达每个独特情节的情感表达。
+            致力于前卫广告拍摄与剧情片创作。
+            永不停歇地追寻光的本质与质感。
+          </p>
+
+          <div class="awards-section">
+            <h2 class="awards-title">获奖 & 荣誉</h2>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">2019 MIFF - 最佳摄影奖提名</p>
+                <p class="award-movie">《洛城父子》</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">BAFTA 获奖 - BAFTA中国展奕计划奖</p>
+                <p class="award-movie">《隐形守护者》</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">第十届北京独立电影节 - 年度剧情片奖</p>
+                <p class="award-movie">《迷途》</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">University of Miami 第16届Canes电影节 - 椰子奖</p>
+                <p class="award-movie">《迷途》</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">第19届日内瓦国际电影节 - 短片入围</p>
+                <p class="award-movie">《迷途》</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">2025 SHORTWAVE 上海青年短片展 - 入围</p>
+                <p class="award-movie">《过五关》</p>
+              </div>
+            </div>
+
+            <div class="award-item">
+              <span class="award-star">★</span>
+              <div>
+                <p class="award-name">中国金鸡百花电影节 - 观众最喜爱短片</p>
+                <p class="award-movie">《迷途》</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="page-contact" class="page-section page-hidden">
+      <div class="page">
+        <h1 class="page-title">联系</h1>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>联系方式</h2>
+            <div class="contact-item">
+              <span class="contact-label">电话</span>
+              <span class="contact-value"><a href="tel:13693363134">136 9336 3134</a></span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">邮箱</span>
+              <span class="contact-value"><a href="mailto:lzw820616@126.com">lzw820616@126.com</a></span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">网站</span>
+              <span class="contact-value"><a href="https://www.xinpianchang.com/u10322429" target="_blank">新片场</a></span>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h2>发送消息</h2>
+            <div id="formContainer">
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="您的姓名" id="nameInput">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-input" placeholder="您的邮箱" id="emailInput">
+              </div>
+              <div class="form-group">
+                <textarea class="form-input" placeholder="您的留言" id="messageInput"></textarea>
+              </div>
+              <button class="form-btn" onclick="submitForm()">发送消息</button>
+            </div>
+            <div id="successMessage" class="success-message" style="display:none;">
+              <p>感谢您的留言！</p>
+              <p style="color: #666; font-size: 14px; margin-top: 10px;">我们会尽快回复您</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 李振伟 WADE LIIE. 保留所有权利</p>
+    <p>电影摄影师 | 导演</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <script>
+    let currentPage = 'home';
+
+    function showPage(page) {
+      // Hide all pages
+      document.querySelectorAll('.page-section').forEach(el => {
+        el.classList.add('page-hidden');
+      });
+
+      // Show selected page
+      const pageEl = document.getElementById('page-' + page);
+      if (pageEl) {
+        pageEl.classList.remove('page-hidden');
+      }
+
+      // Update nav links
+      document.querySelectorAll('.nav-link').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      const activeLink = document.querySelector(`.nav-link[onclick="showPage('${page}')"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+
+      // Close mobile menu
+      document.getElementById('navLinks').classList.remove('active');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      currentPage = page;
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function submitForm() {
+      const name = document.getElementById('nameInput').value;
+      const email = document.getElementById('emailInput').value;
+      const message = document.getElementById('messageInput').value;
+
+      if (name && email && message) {
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+
+        setTimeout(() => {
+          document.getElementById('formContainer').style.display = 'block';
+          document.getElementById('successMessage').style.display = 'none';
+          document.getElementById('nameInput').value = '';
+          document.getElementById('emailInput').value = '';
+          document.getElementById('messageInput').value = '';
+        }, 3000);
+      }
+    }
+
+    // Back to top button visibility
+    window.addEventListener('scroll', () => {
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 500) {
+        backToTop.style.display = 'flex';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    // Initialize
+    document.getElementById('backToTop').style.display = 'none';
+  </script>
+</body>
+</html>
