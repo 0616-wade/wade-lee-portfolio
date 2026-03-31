@@ -14,8 +14,10 @@
     body {
       background-color: #000000;
       color: #ffffff;
-      font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-weight: 300;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Navigation */
@@ -54,10 +56,10 @@
 
     .nav-link {
       padding: 20px 16px;
-      color: #666;
+      color: #555;
       text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 3px;
       cursor: pointer;
       transition: color 0.2s;
     }
@@ -98,37 +100,37 @@
     }
 
     .hero h1 {
-      font-size: 56px;
-      font-weight: bold;
-      letter-spacing: 8px;
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 16px;
       margin-bottom: 30px;
     }
 
     .hero p {
-      font-size: 18px;
-      color: #888;
-      letter-spacing: 2px;
-      line-height: 1.8;
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 4px;
+      line-height: 2;
       max-width: 600px;
     }
 
     .hero-buttons {
-      margin-top: 50px;
+      margin-top: 60px;
       display: flex;
-      gap: 20px;
+      gap: 40px;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .hero-btn {
-      padding: 15px 40px;
+      padding: 12px 30px;
       border: 1px solid #333;
       background: transparent;
-      color: #fff;
-      font-size: 14px;
-      letter-spacing: 2px;
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 4px;
       cursor: pointer;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, color 0.3s;
     }
 
     .hero-btn:hover {
@@ -143,17 +145,17 @@
     }
 
     .page-title {
-      font-size: 42px;
-      font-weight: bold;
-      letter-spacing: 6px;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 8px;
       margin-bottom: 10px;
     }
 
     .page-subtitle {
-      color: #666;
+      color: #555;
       margin-bottom: 60px;
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 11px;
+      letter-spacing: 4px;
     }
 
     /* Grid Layout */
@@ -192,7 +194,8 @@
     }
 
     .grid-item-title {
-      font-size: 18px;
+      font-size: 14px;
+      font-weight: 400;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -206,20 +209,22 @@
     }
 
     .grid-item-role {
-      color: #888;
-      font-size: 14px;
+      color: #666;
+      font-size: 12px;
       margin-top: 5px;
+      letter-spacing: 1px;
     }
 
     .grid-item-detail {
-      color: #555;
-      font-size: 12px;
+      color: #444;
+      font-size: 11px;
       margin-top: 5px;
+      letter-spacing: 0.5px;
     }
 
     .grid-item-year {
       color: #555;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     /* Commercial Grid */
@@ -240,13 +245,15 @@
     }
 
     .commercial-client {
-      color: #666;
-      font-size: 12px;
+      color: #555;
+      font-size: 10px;
+      letter-spacing: 2px;
       margin-bottom: 8px;
     }
 
     .commercial-title {
-      color: #fff;
+      color: #888;
+      font-size: 12px;
     }
 
     /* Photo Gallery Grid */
@@ -286,9 +293,9 @@
     }
 
     .bio-content p {
-      font-size: 18px;
-      line-height: 1.9;
-      color: #aaa;
+      font-size: 14px;
+      line-height: 2.2;
+      color: #888;
       margin-bottom: 25px;
     }
 
@@ -299,13 +306,13 @@
     .awards-section {
       margin-top: 60px;
       padding-top: 40px;
-      border-top: 1px solid #333;
+      border-top: 1px solid #222;
     }
 
     .awards-title {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 4px;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 6px;
       margin-bottom: 30px;
     }
 
@@ -321,12 +328,13 @@
     }
 
     .award-name {
-      color: #fff;
+      color: #999;
+      font-size: 13px;
     }
 
     .award-movie {
-      color: #666;
-      font-size: 14px;
+      color: #555;
+      font-size: 11px;
       margin-top: 3px;
     }
 
@@ -352,12 +360,15 @@
     }
 
     .contact-label {
-      color: #666;
+      color: #555;
       width: 60px;
+      font-size: 11px;
+      letter-spacing: 2px;
     }
 
     .contact-value {
-      color: #fff;
+      color: #999;
+      font-size: 13px;
     }
 
     .contact-value a {
